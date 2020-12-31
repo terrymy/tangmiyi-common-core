@@ -1,0 +1,61 @@
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+    max-swallow-size: 30MB
+  connection-timeout: 10000
+  port: 2006
+
+logging:
+  file: example-order-2006.log
+  level:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: INFO
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/ #注册发现服务（2/3）
+  instance:
+    hostname: ${spring.cloud.client.ip-address}
+    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    default:
+      type: caffeine
+      limit: 1000
+      keyConvertor: fastjson
+      expireAfterWriteInMillis: 30000
+  remote:
+    default:
+      type: redis.lettuce
+      limit: 1000
+      uri: redis://${redis.password}@${redis.host}:${redis.port}/
+      keyConvertor: fastjson
+      valueEncoder: java
+      valueDecoder: java
+      expireAfterWriteInMillis: 40000
+
+mybatis:
+  type-aliases-package: com.bsnl.commission.*.entity
+  mapper-locations: classpath:mapper/*.xml
+  #配置驼峰下划线
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+login:
+  filter:
+    ignoreUrl:
+      - /**/open/**
