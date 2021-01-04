@@ -1,6 +1,6 @@
 spring:
   application:
-    name: example-order
+    name: example-goods
   profiles:
     active: '@app.active@'
   cloud:
@@ -10,9 +10,9 @@ spring:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
   datasource:
-    url: jdbc:mysql://${example.order.host}/tangmiyi_configserver?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-    username: ${example.order.username}
-    password: ${example.order.password}
+    url: jdbc:mysql://${example.goods.host}/tangmiyi_configserver?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: ${example.goods.username}
+    password: ${example.goods.password}
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driverClassName: com.mysql.jdbc.Driver
