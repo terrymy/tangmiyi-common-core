@@ -47,7 +47,7 @@ jetcache:
       expireAfterWriteInMillis: 40000
 
 mybatis:
-  type-aliases-package: com.bsnl.commission.*.entity
+  type-aliases-package: com.tangmiyi.future.*.pojo
   mapper-locations: classpath:mapper/*.xml
   #配置驼峰下划线
   configuration:

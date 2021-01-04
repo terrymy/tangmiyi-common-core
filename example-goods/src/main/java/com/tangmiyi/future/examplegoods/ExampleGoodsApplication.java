@@ -18,9 +18,9 @@ import tk.mybatis.spring.annotation.MapperScan;
 @EnableHystrix
 @EnableAsync
 @EnableTransactionManagement
-@MapperScan("com.tangmiyi.future.*.common.dao")
+@MapperScan("com.tangmiyi.future.*.dao")
 @ComponentScan(basePackages = {"com.tangmiyi.future.*"})
-@EnableMethodCache(basePackages = {"com.bsnl.commission.config.common.service.impl"})
+@EnableMethodCache(basePackages = {"com.tangmiyi.future.examplegoods.service.impl"})
 @EnableCreateCacheAnnotation
 public class ExampleGoodsApplication {
 
