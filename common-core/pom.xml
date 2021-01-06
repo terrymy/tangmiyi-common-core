@@ -15,7 +15,6 @@
     <artifactId>common-core</artifactId>
 
     <properties>
-        <com.fasterxml.jackson.version>2.9.6</com.fasterxml.jackson.version>
         <com.commons.beanutils.version>1.9.4</com.commons.beanutils.version>
         <com.redisson.spring.version>3.11.0</com.redisson.spring.version>
         <jetcache.starter.version>2.5.11</jetcache.starter.version>
@@ -88,25 +87,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${com.fasterxml.jackson.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${com.fasterxml.jackson.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${com.fasterxml.jackson.version}</version>
         </dependency>
 
         <dependency>
