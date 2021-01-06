@@ -4,7 +4,8 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <properties resource="application.properties"/>
+    <!--加载配置文件取值-->
+<!--    <properties resource="classpath:resources/generator/generator.properties"/>-->
 
     <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="javaFileEncoding" value="UTF-8"/>
@@ -12,27 +13,27 @@
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
-        <!--添加自定义的继承接口-->
-        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.mos.quote.common.MyMapper"/>
-        </plugin>
+<!--        &lt;!&ndash;添加自定义的继承接口&ndash;&gt;-->
+<!--        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
+<!--            <property name="mappers" value="com.mos.quote.common.MyMapper"/>-->
+<!--        </plugin>-->
 
-        <!--数据源配置-->
-        <jdbcConnection driverClass="${spring.datasource.driver-class-name}"
-                        connectionURL="${spring.datasource.url}"
-                        userId="${spring.datasource.username}"
-                        password="${spring.datasource.password}">
+        <!--连接数据库-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/tangmiyi_configserver?characterEncoding=utf-8"
+                        userId="root"
+                        password="7ujm123456">
         </jdbcConnection>
 
         <!--pojo包路径-->
-        <javaModelGenerator targetPackage="com.mos.quote.model" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.tangmiyi.future.exampleorder.pojo" targetProject="src/main/java"/>
         <!--mapper.xml包路径-->
         <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
         <!--mapper包路径-->
-        <javaClientGenerator targetPackage="com.mos.quote.mapper" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.tangmiyi.future.exampleorder.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!--表配置，tableName支持%，表示全部生成-->
-        <table tableName="t_dic_dict" domainObjectName="Dict">
+        <table tableName="properties_snow" domainObjectName="propertiesSnow">
             <!--mysql 配置-->
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
