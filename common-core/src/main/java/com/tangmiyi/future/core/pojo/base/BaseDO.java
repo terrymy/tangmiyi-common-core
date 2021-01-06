@@ -13,6 +13,8 @@ public abstract class BaseDO extends BaseObject {
 
     private Long id;
 
+    private String genID;
+
     private Date createdAt;
 
     private Date updatedAt;
