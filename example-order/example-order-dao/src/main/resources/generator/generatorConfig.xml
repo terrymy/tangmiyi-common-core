@@ -13,10 +13,10 @@
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
-<!--        &lt;!&ndash;添加自定义的继承接口&ndash;&gt;-->
-<!--        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">-->
-<!--            <property name="mappers" value="com.mos.quote.common.MyMapper"/>-->
-<!--        </plugin>-->
+        <!--添加自定义的继承接口-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
 
         <!--连接数据库-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
@@ -33,9 +33,9 @@
         <javaClientGenerator targetPackage="com.tangmiyi.future.exampleorder.dao" targetProject="src/main/java"
                              type="XMLMAPPER"/>
         <!--表配置，tableName支持%，表示全部生成-->
-        <table tableName="properties_snow" domainObjectName="propertiesSnow">
+        <table tableName="properties_snow" domainObjectName="PropertiesSnowDO">
             <!--mysql 配置-->
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
         </table>
     </context>
 </generatorConfiguration>
