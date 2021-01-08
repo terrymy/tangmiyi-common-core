@@ -1,21 +1,17 @@
-package com.tangmiyi.future.exampleorder.pojo;
+package com.tangmiyi.future.exampleorder.pojo.param;
 
-import com.tangmiyi.future.core.pojo.base.BaseDO;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Table;
-
-@Table(name = "properties_snow")
 @Setter
 @Getter
-public class PropertiesSnowDO extends BaseDO {
+public class PropertiesSnowParam {
+
+    private static final long serialVersionUID = 1L;
 
     /**
      * 配置文件key
      */
-    @Column(name = "`key`")
     private String key;
 
     /**

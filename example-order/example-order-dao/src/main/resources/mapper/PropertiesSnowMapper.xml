@@ -15,4 +15,20 @@
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
   </resultMap>
+
+  <select id="selectPageList" resultMap="BaseResultMap" parameterType="com.tangmiyi.future.exampleorder.pojo.param.PropertiesSnowPageParam">
+    select id,`key`,`value`,application,profile,lable,common,created_at,updated_at from properties_snow
+    <where>
+      <if test="propertiesSnowPageParam.common != null">
+        and common = #{propertiesSnowPageParam.common}
+      </if>
+      <if test="propertiesSnowPageParam.startTime != null">
+        AND created_at &gt;= #{propertiesSnowPageParam.startTime}
+      </if>
+      <if test="propertiesSnowPageParam.endTime != null">
+        AND created_at &lt;= #{propertiesSnowPageParam.endTime}
+      </if>
+    </where>
+    order by id desc
+  </select>
 </mapper>
