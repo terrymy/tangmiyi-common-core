@@ -14,13 +14,13 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableFeignClients(basePackages= {"com.tangmiyi.future.*"})
+@EnableFeignClients(basePackages= {"com.tangmiyi.future"})
 @EnableHystrix
 @EnableAsync
 @EnableTransactionManagement
 @MapperScan("com.tangmiyi.future.*.dao")
-@ComponentScan(basePackages = {"com.tangmiyi.future.*"})
-@EnableMethodCache(basePackages = {"com.tangmiyi.future.examplegoods.service.impl"})
+@ComponentScan(basePackages = {"com.tangmiyi.future"})
+@EnableMethodCache(basePackages = {"com.tangmiyi.future"})
 @EnableCreateCacheAnnotation
 public class ExampleGoodsApplication {
 

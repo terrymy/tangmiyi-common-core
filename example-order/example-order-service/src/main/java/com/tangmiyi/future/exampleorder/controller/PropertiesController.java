@@ -46,4 +46,19 @@ public class PropertiesController {
         resultBean.setData(testValidParam.getInputString());
         return resultBean;
     }
+
+    /**
+     * testRedisLock案例
+     * @return
+     */
+    @GetMapping("/v1/properties/testRedisLock")
+    public ResultBean<Boolean> testRedisLock() {
+        ResultBean<Boolean> resultBean = ResultBean.success();
+        TestValidParam testValidParam = new TestValidParam();
+        testValidParam.setInputFalse(true);
+        testValidParam.setInputString("QQ");
+        propertiesService.testRedisLock(1003L,"redisLock",testValidParam);
+        resultBean.setData(true);
+        return resultBean;
+    }
 }

@@ -10,15 +10,15 @@ import java.lang.annotation.Target;
 public @interface RedissonLock {
 
     /**
-     * 要锁哪个参数
+     * 要锁哪个参数，0为起始参数
      */
     int lockIndex() default -1;
 
     /**
-     * 是否调用trylock，默认为true
+     * 是否等待，默认为true，false跳过本次执行
      * @return
      */
-    boolean tryLock() default true;
+    boolean waiting() default true;
 
     /**
      * 锁多久后自动释放（单位：秒）

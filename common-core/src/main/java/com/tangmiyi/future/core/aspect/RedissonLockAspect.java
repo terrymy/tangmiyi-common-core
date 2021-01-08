@@ -39,9 +39,9 @@ public class RedissonLockAspect {
         // the maximum time to wait for the lock
         // int leaseTime = redissonLock.leaseTime();
         // 可重入锁
-        boolean tryLock = redissonLock.tryLock();
+        boolean waiting = redissonLock.waiting();
         RLock rLock = redisson.getLock(key);
-        if(tryLock){
+        if(waiting){
             boolean result = rLock.tryLock();
             //获得锁
             if(result){

@@ -1,6 +1,7 @@
 package com.tangmiyi.future.exampleorder.service.impl;
 
 
+import com.alicp.jetcache.anno.Cached;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.tangmiyi.future.core.bean.PageBean;
@@ -23,6 +24,7 @@ public class PropertiesServiceSnowImpl implements PropertiesSnowService {
     private PropertiesSnowMapper propertiesSnowMapper;
 
     @Override
+    @Cached
     public PageBean findPageList(PropertiesSnowPageParam propertiesSnowPageParam) {
         Page<PropertiesSnowDO> page = PageHelper.startPage(propertiesSnowPageParam.getPageNo(), propertiesSnowPageParam.getPageSize());
         List<PropertiesSnowDO> propertiesSnowDOS = propertiesSnowMapper.selectPageList(propertiesSnowPageParam);
