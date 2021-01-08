@@ -12,4 +12,12 @@
     <packaging>jar</packaging>
     <version>1.0.0-SNAPSHOT</version>
     <artifactId>example-order-client</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.tangmiyi.future</groupId>
+            <artifactId>example-order-dao</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

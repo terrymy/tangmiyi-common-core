@@ -23,7 +23,7 @@ import java.util.Date;
 @Component
 @Slf4j
 @RefreshScope
-public class JwtTokenUtil implements Serializable {
+public class JwtTokenUtils implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

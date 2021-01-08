@@ -28,6 +28,8 @@
 ##
 4.orm框架统一使用tkmybatis，不允许使用其他框架，分页插件统一使用pagehelper
 ##
+5.client工程用来提供各个服务feign的调用，打成jar包并deploy到私有仓库
+##
 (3).实体枚举模型
 #
 1.DO（Data Object）：此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象
