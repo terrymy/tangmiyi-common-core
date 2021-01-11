@@ -61,6 +61,7 @@ public class RedissonLockAspect {
                 rLock.lock();
                 obj = joinPoint.proceed();
             } catch (Exception e) {
+                dingMsgUtils.sendDingMsg(key+"rLock.lock() exception");
                 throw e;
             } finally {
                 //释放锁
