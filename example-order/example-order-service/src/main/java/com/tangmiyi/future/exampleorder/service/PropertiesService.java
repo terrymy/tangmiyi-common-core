@@ -7,4 +7,6 @@ public interface PropertiesService{
     void testExceptionReturn();
 
     void testRedisLock(Long id, String code, TestValidParam testValidParam);
+
+    void testJetCache();
 }

@@ -61,4 +61,16 @@ public class PropertiesController {
         resultBean.setData(true);
         return resultBean;
     }
+
+    /**
+     * testRedisLock案例
+     * @return
+     */
+    @GetMapping("/v1/properties/testJetCache")
+    public ResultBean<Boolean> testJetCache() {
+        ResultBean<Boolean> resultBean = ResultBean.success();
+        propertiesService.testJetCache();
+        resultBean.setData(true);
+        return resultBean;
+    }
 }
