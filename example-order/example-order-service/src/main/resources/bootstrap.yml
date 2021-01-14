@@ -9,6 +9,31 @@ spring:
       uri: http://localhost:8000 #配置中心服务（1/3）
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
+#    stream:
+#      bindings:
+#        ouput:
+#          destination: stream-test-topic #topic
+#          content-type: application/json
+#          #group: stream-test-group
+#        input:
+#          destination: stream-test-topic #topic
+#          content-type: application/json
+#          group: stream-test-group   # 消费者组, 同组负载消费
+#      rocketmq:
+#        binder:
+#          name-server: ${spring.rocketmq.host}:${spring.rocketmq.port}
+#        bindings:
+#          input:
+#            # RocketMQ Consumer 配置项
+#            consumer:
+#              enabled: true # 是否开启消费，默认为 true
+#              broadcasting: false # 是否使用广播消费，默认为 false（使用集群消费）
+##              tags: tagStr
+#          ouput:
+#            producer:
+#              group: my-ouput-group
+#              sync: true
+
   datasource:
     url: jdbc:mysql://${example.order.host}/tangmiyi_configserver?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: ${example.order.username}

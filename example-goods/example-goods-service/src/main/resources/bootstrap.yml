@@ -9,6 +9,7 @@ spring:
       uri: http://localhost:8000 #配置中心服务（1/3）
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
+
   datasource:
     url: jdbc:mysql://${example.goods.host}/tangmiyi_configserver?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: ${example.goods.username}

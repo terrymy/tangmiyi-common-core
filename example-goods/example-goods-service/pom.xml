@@ -36,5 +36,12 @@
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
+        <!--rocketmq start-->
+        <dependency>
+            <groupId>com.tangmiyi.future</groupId>
+            <artifactId>common-alibaba</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!--rocketmq end-->
     </dependencies>
 </project>

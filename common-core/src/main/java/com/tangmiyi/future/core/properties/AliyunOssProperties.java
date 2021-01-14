@@ -10,13 +10,13 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 @Getter
 @RefreshScope
 public class AliyunOssProperties {
-    @Value("${ailiyun.oss.endpoint}")
+    @Value("${ailiyun.oss.endpoint:}")
     private String endpoint;
 
-    @Value("${ailiyun.oss.bucketName}")
+    @Value("${ailiyun.oss.bucketName:}")
     private String bucketName;
 
-    @Value("${ailiyun.oss.cdn}")
+    @Value("${ailiyun.oss.cdn:}")
     private String ossCdn;
 
     @Value("${ailiyun.oss.keyId:}")

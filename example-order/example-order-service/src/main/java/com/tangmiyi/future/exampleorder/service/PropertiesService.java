@@ -9,4 +9,6 @@ public interface PropertiesService{
     void testRedisLock(Long id, String code, TestValidParam testValidParam);
 
     void testJetCache();
+
+    void testStream();
 }

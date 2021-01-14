@@ -1,17 +1,20 @@
 server:
   tomcat:
-    uri-encoding: UTF-8
-    max-threads: 1000
-    min-spare-threads: 30
-    max-swallow-size: 30MB
-  connection-timeout: 10000
+    tomcat:
+      uri-encoding: UTF-8
+      threads:
+        max: 1000
+        min-spare: 30
+        max-swallow-size: 30MB
+      connection-timeout: 10000
   port: 2016
 
 logging:
-  file: example-goods-2016.log
+  file:
+    name: example-goods-2016.log
   level:
-    org.springframework.boot.env.PropertySourcesLoader: TRACE
     org.springframework.web: INFO
+    com.alibab.cloud.stream.binder.rocketmq: INFO
 
 eureka:
   client:
