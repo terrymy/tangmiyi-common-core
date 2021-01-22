@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--加载配置文件取值-->
+<!--    <properties resource="classpath:resources/generator/generator.properties"/>-->
+
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!--处理sql中的`符号-->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--添加自定义的继承接口-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+        </plugin>
+
+        <!--连接数据库-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/tangmiyi_configserver?characterEncoding=utf-8"
+                        userId="root"
+                        password="7ujm123456">
+        </jdbcConnection>
+
+        <!--pojo包路径-->
+        <javaModelGenerator targetPackage="com.tangmiyi.future.exampleorder.pojo" targetProject="src/main/java"/>
+        <!--mapper.xml包路径-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+        <!--mapper包路径-->
+        <javaClientGenerator targetPackage="com.tangmiyi.future.exampleorder.dao" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+        <!--表配置，tableName支持%，表示全部生成-->
+        <table tableName="properties_snow" domainObjectName="PropertiesSnowDO">
+            <!--mysql 配置-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+        </table>
+    </context>
+</generatorConfiguration>

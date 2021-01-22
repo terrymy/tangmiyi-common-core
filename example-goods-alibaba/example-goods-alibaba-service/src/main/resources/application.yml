@@ -1,0 +1,51 @@
+server:
+  tomcat:
+    tomcat:
+      uri-encoding: UTF-8
+      threads:
+        max: 1000
+        min-spare: 30
+        max-swallow-size: 30MB
+      connection-timeout: 10000
+  port: 2016
+
+logging:
+  file:
+    name: example-goods-alibaba-2016.log
+  level:
+    org.springframework.web: INFO
+    com.alibab.cloud.stream.binder.rocketmq: INFO
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 30MB
+      max-request-size: 30MB
+
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  local:
+    default:
+      type: caffeine
+      limit: 1000
+      keyConvertor: fastjson
+      expireAfterWriteInMillis: 30000
+  remote:
+    default:
+      type: redis.lettuce
+      limit: 1000
+      uri: redis://${redis.password}@${redis.host}:${redis.port}/
+      keyConvertor: fastjson
+      valueEncoder: java
+      valueDecoder: java
+      expireAfterWriteInMillis: 40000
+
+mybatis:
+  type-aliases-package: com.tangmiyi.future.*.pojo
+  mapper-locations: classpath:mapper/*.xml
+  #配置驼峰下划线
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -2,7 +2,7 @@ spring:
   application:
     name: example-order
   profiles:
-    active: '@app.active@'
+    active: @app.active@
   cloud:
     config:
       label: master
