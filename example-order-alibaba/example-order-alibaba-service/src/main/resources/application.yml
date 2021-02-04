@@ -1,9 +1,12 @@
+#4核心，8G
 server:
   tomcat:
     uri-encoding: UTF-8
     threads:
       max: 1000
       min-spare: 30
+    max-connections: 20000 #最大连接数
+    accept-count: 1000 #最大等待队列，如果并发超过21000则直接拒绝
     connection-timeout: 10000
   port: 2006
 
@@ -13,6 +16,7 @@ logging:
   level:
     org.springframework.web: INFO
     com.alibab.cloud.stream.binder.rocketmq: INFO
+    io.seata: INFO
 
 spring:
   servlet:
@@ -47,3 +51,27 @@ mybatis:
     map-underscore-to-camel-case: true
     cache-enabled: false
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+seata:
+  enabled: true
+  application-id: ${spring.application.name}
+  #每个服务分配到的事务组，配置中心搜索*service.vgroupMapping*
+  tx-service-group: ${spring.application.name}-tx-group
+  enable-auto-data-source-proxy: true
+  config:
+    type: nacos
+    nacos:
+      serverAddr: '@nacos.addr@'
+      namespace: '@nacos.namespace@'
+      group: SEATA_GROUP
+      username: '@nacos.username@'
+      password: '@nacos.password@'
+  registry:
+    type: nacos
+    nacos:
+      application: seata-server
+      serverAddr: '@nacos.addr@'
+      namespace: '@nacos.namespace@'
+      group: SEATA_GROUP
+      username: '@nacos.username@'
+      password: '@nacos.password@'

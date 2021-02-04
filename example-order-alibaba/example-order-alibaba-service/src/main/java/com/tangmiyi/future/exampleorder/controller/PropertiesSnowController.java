@@ -8,6 +8,7 @@ import com.tangmiyi.future.exampleorder.client.service.OrderPropertiesSnowServic
 import com.tangmiyi.future.exampleorder.pojo.param.PropertiesSnowPageParam;
 import com.tangmiyi.future.exampleorder.pojo.param.PropertiesSnowParam;
 import com.tangmiyi.future.exampleorder.service.PropertiesSnowService;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 @RestController
 @ServiceLogAop
 @Slf4j
+@Api(tags = "propertiesSnowParam管理")
 public class PropertiesSnowController extends BaseController implements OrderPropertiesSnowService {
 
     @Autowired

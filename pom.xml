@@ -71,7 +71,10 @@
 			<id>dev</id>
 			<properties>
 				<app.active>dev</app.active>
-				<nacos.namespace>4dd29b17-bbde-4510-8332-69dc0c1ba94b</nacos.namespace>
+				<nacos.namespace>230f13a8-a242-4660-aadb-8a3107eb54a6</nacos.namespace>
+				<nacos.addr>127.0.0.1:8848</nacos.addr>
+				<nacos.username>nacos</nacos.username>
+				<nacos.password>nacos</nacos.password>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
