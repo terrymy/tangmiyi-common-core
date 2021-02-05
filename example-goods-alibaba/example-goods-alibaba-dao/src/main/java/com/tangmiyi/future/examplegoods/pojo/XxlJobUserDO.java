@@ -17,7 +17,7 @@ public class XxlJobUserDO{
 
     private String username;
 
-    private String paasword;
+    private String password;
 
     private Integer role;
 

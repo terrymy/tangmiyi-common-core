@@ -1,5 +1,20 @@
 公共模块-项目规范
 ===
+
+| 名称 | 版本 | 说明 |
+| --- | --- | --- |
+| spring-cloud-alibaba | 2.2.3.RELEASE(Hoxton.SR8) | 微服务核心框架 |
+| nacos | 1.4.1 | 注册中心 |
+| seata | 1.4.0 | 分布式事务 |
+| jetcahce | 2.5.14 | 分布式缓存框架 |
+| gateway | 2.2.3.RELEASE | 微服务网关 |
+| feign | 2.2.3.RELEASE | 服务通讯 |
+| swagger | 3.0.0 | 接口文档 |
+| xxl-job | 2.2.0 | 分布式任务调度 |
+| tk-mybatis | 2.1.5 | ORM框架 |
+| spring-booot | 2.3.2.RELEASE | spring框架 |
+| hystrix | 2.2.3.RELEASE | 断路由 |
+
 一、工程流程规约
 ---
 (1).设计开发
@@ -171,4 +186,8 @@
 (3).关于excel操作
 #
 1.统一使用easyexcel，可参考https://github.com/alibaba/easyexcel
+##
+(4).关于分布式事务
+#
+1.能不用分布式事务就不用，如果非得使用的，结合具体业务分析，比较适合哪一种，是在乎强一致，还是最终一致，分布式事务中间件统一使用seata（默认AT模式-强一致性），可参考http://seata.io/zh-cn
 ##

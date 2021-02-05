@@ -18,7 +18,7 @@ public class SeataExampleController {
     private SeataExampleService seataExampleService;
 
     /**
-     * 分布式事务测试案例
+     * 分布式事务seata测试案例
      * @return
      */
     @GetMapping("/v1/seata/test")

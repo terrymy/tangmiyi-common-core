@@ -54,9 +54,9 @@ mybatis:
 seata:
   enabled: true
   application-id: ${spring.application.name}
-  #每个服务分配到的事务组，配置中心搜索*service.vgroupMapping*
-  tx-service-group: ${spring.application.name}-tx-group
-  enable-auto-data-source-proxy: true
+  #事务组
+  tx-service-group: my_test_tx_group
+  #enable-auto-data-source-proxy: true
   config:
     type: nacos
     nacos:

@@ -24,12 +24,12 @@ public class SeataExampleServiceImpl implements SeataExampleService {
     private XxlJobUserMapper xxlJobUserMapper;
 
     @Override
-    @GlobalTransactional(timeoutMills = 100000, name = "my_business_group")
+    @GlobalTransactional(timeoutMills = 100000, name = "spring-cloud-demo-tx")
     public void testSeata() {
         XxlJobUserDO xxlJobUserDO = new XxlJobUserDO();
         xxlJobUserDO.setId(2L);
         xxlJobUserDO.setUsername("seata");
-        xxlJobUserDO.setPaasword("xxxxxlllllll");
+        xxlJobUserDO.setPassword("xxxxxlllllll");
         xxlJobUserDO.setRole(1);
         xxlJobUserMapper.insert(xxlJobUserDO);
         // do someting....
@@ -41,5 +41,6 @@ public class SeataExampleServiceImpl implements SeataExampleService {
         propertiesSnowParam.setValue("A");
         propertiesSnowParam.setProfile("A");
         exampleOrderPropertiesSnowFeign.add(propertiesSnowParam);
+        int i=1/0;
     }
 }
