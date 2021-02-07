@@ -7,13 +7,13 @@
 | nacos | 1.4.1 | 注册中心 |
 | seata | 1.4.0 | 分布式事务 |
 | jetcahce | 2.5.14 | 分布式缓存框架 |
-| gateway | 2.2.3.RELEASE | 微服务网关 |
-| feign | 2.2.3.RELEASE | 服务通讯 |
+| gateway | 2.2.5.RELEASE | 微服务网关 |
+| feign | 2.2.5.RELEASE | 服务通讯 |
 | swagger | 3.0.0 | 接口文档 |
 | xxl-job | 2.2.0 | 分布式任务调度 |
 | tk-mybatis | 2.1.5 | ORM框架 |
 | spring-booot | 2.3.2.RELEASE | spring框架 |
-| hystrix | 2.2.3.RELEASE | 断路由 |
+| hystrix | 2.2.5.RELEASE | 断路由降级容错 |
 
 一、工程流程规约
 ---
