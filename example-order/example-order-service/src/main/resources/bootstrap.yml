@@ -98,6 +98,9 @@ management:
   endpoint:
     health:
       show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
   info:
     git:
       mode: full
@@ -110,3 +113,6 @@ management:
       enabled: false
     ldap:
       enabled: false
+
+#  server:
+#    port: 12006

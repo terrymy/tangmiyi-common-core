@@ -14,6 +14,7 @@
 | tk-mybatis | 2.1.5 | ORM框架 |
 | spring-booot | 2.3.2.RELEASE | spring框架 |
 | sentinel | 2.2.3.RELEASE | 断路由降级容错 |
+| Prometheus | 2.24.1 | 监控日志 |
 
 一、工程流程规约
 ---

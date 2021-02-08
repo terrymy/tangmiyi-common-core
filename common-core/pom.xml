@@ -21,15 +21,18 @@
         <druid.srping.starter.version>1.1.10</druid.srping.starter.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <hutool-all.version>5.5.8</hutool-all.version>
+        <easyexecel.version>2.2.7</easyexecel.version>
+        <spring.admin.client.version>2.3.0</spring.admin.client.version>
+        <github.jsqlparser.version>1.2</github.jsqlparser.version>
+        <pagehelper.starter.version>1.2.3</pagehelper.starter.version>
+        <aliyun.sdk.oss.version>2.8.3</aliyun.sdk.oss.version>
+        <springfox.swagger.version>3.0.0</springfox.swagger.version>
+        <fastjson.version>1.2.73</fastjson.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <logstash-logback.version>4.9</logstash-logback.version>
     </properties>
 
     <dependencies>
-
-<!--        <dependency>-->
-<!--            <groupId>com.tangmiyi.future</groupId>-->
-<!--            <artifactId>common-netfix</artifactId>-->
-<!--            <version>1.0.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>com.tangmiyi.future</groupId>
@@ -74,33 +77,33 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.3</version>
+            <version>${pagehelper.starter.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.jsqlparser</groupId>
             <artifactId>jsqlparser</artifactId>
-            <version>1.2</version>
+            <version>${github.jsqlparser.version}</version>
         </dependency>
         <!-- mysql end -->
 
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-boot-starter</artifactId>
-            <version>3.0.0</version>
+            <version>${springfox.swagger.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.aliyun.oss</groupId>
             <artifactId>aliyun-sdk-oss</artifactId>
-            <version>2.8.3</version>
+            <version>${aliyun.sdk.oss.version}</version>
         </dependency>
 
         <!-- jwt -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.9.0</version>
+            <version>${jjwt.version}</version>
         </dependency>
 
         <dependency>
@@ -113,30 +116,30 @@
         <dependency>
             <groupId>net.logstash.logback</groupId>
             <artifactId>logstash-logback-encoder</artifactId>
-            <version>4.9</version>
+            <version>${logstash-logback.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
+            <version>${lombok.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.5</version>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.44</version>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>de.codecentric</groupId>
             <artifactId>spring-boot-admin-starter-client</artifactId>
-            <version>2.3.0</version>
+            <version>${spring.admin.client.version}</version>
         </dependency>
 
         <dependency>
@@ -148,7 +151,12 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>easyexcel</artifactId>
-            <version>2.2.7</version>
+            <version>${easyexecel.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
         </dependency>
 
     </dependencies>
