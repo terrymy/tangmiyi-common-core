@@ -13,7 +13,7 @@
 | xxl-job | 2.2.0 | 分布式任务调度 |
 | tk-mybatis | 2.1.5 | ORM框架 |
 | spring-booot | 2.3.2.RELEASE | spring框架 |
-| hystrix | 2.2.5.RELEASE | 断路由降级容错 |
+| sentinel | 2.2.3.RELEASE | 断路由降级容错 |
 
 一、工程流程规约
 ---
@@ -190,4 +190,12 @@
 (4).关于分布式事务
 #
 1.能不用分布式事务就不用，如果非得使用的，结合具体业务分析，比较适合哪一种，是在乎强一致，还是最终一致，分布式事务中间件统一使用seata（默认AT模式-强一致性），可参考http://seata.io/zh-cn
+##
+(5).关于sentinel
+#
+1.可参考https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel
+##
+(6).关于Java工具类库
+#
+1.core已集成Hutool，统一使用Hutool，可参考https://www.hutool.cn/docs/#/
 ##

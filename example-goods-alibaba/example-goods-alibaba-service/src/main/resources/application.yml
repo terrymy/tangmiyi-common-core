@@ -22,6 +22,15 @@ spring:
     multipart:
       max-file-size: 30MB
       max-request-size: 30MB
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8787
+
+feign:
+  sentinel:
+    enabled: true
 
 jetcache:
   statIntervalMinutes: 15

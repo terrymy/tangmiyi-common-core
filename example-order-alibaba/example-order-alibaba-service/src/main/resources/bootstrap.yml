@@ -28,27 +28,6 @@ spring:
     encoding: utf-8
     basename: i18n/messages
 
-hystrix:
-  threadpool:
-    default:
-      coreSize: 100 #并发执行的最大线程数，默认10
-      maxQueueSize: 200 #BlockingQueue的最大队列数
-      queueSizeRejectionThreshold: 40 #即使maxQueueSize没有达到，达到queueSizeRejectionThreshold该值后，请求也会被拒绝
-  command:
-    default:
-      execution:
-        timeout:
-          #如果enabled设置为false，则请求超时交给ribbon控制,为true,则超时作为熔断根据
-          enabled: true
-        isolation:
-          thread:
-            timeoutInMilliseconds: 10000 #断路器超时时间，默认1000ms
-          strategy: THREAD
-
-feign:
-  hystrix:
-    enabled: true
-
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 5000

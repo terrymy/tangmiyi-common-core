@@ -20,7 +20,7 @@
         <jetcache.starter.version>2.5.14</jetcache.starter.version>
         <druid.srping.starter.version>1.1.10</druid.srping.starter.version>
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
-        <hutool-all.version>5.3.2</hutool-all.version>
+        <hutool-all.version>5.5.8</hutool-all.version>
     </properties>
 
     <dependencies>

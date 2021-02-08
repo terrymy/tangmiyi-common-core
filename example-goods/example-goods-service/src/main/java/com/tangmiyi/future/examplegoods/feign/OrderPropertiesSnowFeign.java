@@ -4,6 +4,6 @@ import com.tangmiyi.future.exampleorder.client.service.OrderPropertiesSnowServic
 import org.springframework.cloud.openfeign.FeignClient;
 
 @FeignClient(name = "example-order")
-public interface ExampleOrderPropertiesSnowFeign extends OrderPropertiesSnowService {
+public interface OrderPropertiesSnowFeign extends OrderPropertiesSnowService {
 
 }
