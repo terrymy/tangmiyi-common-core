@@ -1,12 +1,11 @@
 server:
   tomcat:
-    tomcat:
-      uri-encoding: UTF-8
-      threads:
-        max: 1000
-        min-spare: 30
-        max-swallow-size: 30MB
-      connection-timeout: 10000
+    uri-encoding: UTF-8
+    threads:
+      max: 1000
+      min-spare: 30
+      max-swallow-size: 30MB
+    connection-timeout: 10000
   port: 2016
 
 logging:
