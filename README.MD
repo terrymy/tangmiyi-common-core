@@ -15,6 +15,8 @@
 | spring-booot | 2.3.2.RELEASE | spring框架 |
 | sentinel | 2.2.3.RELEASE | 断路由降级容错 |
 | Prometheus | 2.24.1 | 监控日志 |
+| rocketmq | 4.3.2 | 消息队列 |
+
 
 一、工程流程规约
 ---
@@ -140,7 +142,11 @@
 ##
 9.所有字段均不允许为null，必须有默认值，必须有注释，字典字段类型均为tinyint(2)
 ##
-10.所有测试环境的ddl语句全部收回，由技术负责人统一执行
+10.所有时间类型字段均为timestamp默认值为CURRENT_TIMESTAMP
+##
+11.所有测试环境的ddl语句全部收回，由技术负责人统一执行
+##
+12.sql脚本统一放在对应微服务的src/main/sql目录下，命名规范：时间_微服务名称，例如20210220_platform_manage.sql
 ##
 (2).SQL语句规约
 #
