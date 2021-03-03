@@ -13,8 +13,9 @@
 | xxl-job | 2.2.0 | 分布式任务调度 |
 | tk-mybatis | 2.1.5 | ORM框架 |
 | spring-booot | 2.3.2.RELEASE | spring框架 |
+| elasticsearch | 2.3.2.RELEASE(7.1.0) | 搜索引擎 |
 | sentinel | 2.2.3.RELEASE | 断路由降级容错 |
-| Prometheus | 2.24.1 | 监控日志 |
+| prometheus | 2.24.1 | 监控日志 |
 | rocketmq | 4.3.2 | 消息队列 |
 
 
@@ -115,7 +116,7 @@
 #
 1.异常处理原则请注意如果业务异常，业务方有能力处理自己处理掉，不要直接try cache(Exception)，否则无法补获公共异常
 ##
-2.系统里只允许throw BusinessException和throw DisableNoticeBusinessException两种异常
+2.系统里有BusinessException业务异常，抛出会发送钉钉告警，如果不想钉钉告警，请抛出DisableNoticeBusinessException
 ##
 3.所有对外提示的异常信息码统一维护到各个服务的常量池，提示信息统一写到resources/i18n，不允许直接在代码里写中文提示信息，否则报500错误信息
 ##
