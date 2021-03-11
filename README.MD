@@ -13,7 +13,7 @@
 | xxl-job | 2.2.0 | 分布式任务调度 |
 | tk-mybatis | 2.1.5 | ORM框架 |
 | spring-booot | 2.3.2.RELEASE | spring框架 |
-| elasticsearch | 2.3.2.RELEASE(7.1.0) | 搜索引擎 |
+| elasticsearch | 2.3.2.RELEASE(7.11.1) | 搜索引擎 |
 | sentinel | 2.2.3.RELEASE | 断路由降级容错 |
 | prometheus | 2.24.1 | 监控日志 |
 | rocketmq | 4.3.2 | 消息队列 |
@@ -207,3 +207,8 @@
 #
 1.core已集成Hutool，统一使用Hutool，可参考https://www.hutool.cn/docs/#/
 ##
+(7).关于elasticsearch
+#
+1.客户端api使用 high-level rest，api文档可参考https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high-getting-started.html
+##
+
