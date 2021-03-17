@@ -143,7 +143,7 @@
 ##
 9.所有字段均不允许为null，必须有默认值，必须有注释，字典字段类型均为tinyint(2)
 ##
-10.所有时间类型字段均为timestamp默认值为CURRENT_TIMESTAMP
+10.所有时间类型字段均为DATETIME默认值为CURRENT_TIMESTAMP
 ##
 11.所有测试环境的ddl语句全部收回，由技术负责人统一执行
 ##
