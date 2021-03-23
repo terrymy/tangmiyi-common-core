@@ -187,6 +187,7 @@
 
 ### 5.关于sentinel
 5.1.可参考https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel
+
 ### 6.关于Java工具类库
 6.1.core已集成Hutool，统一使用Hutool，可参考https://www.hutool.cn/docs/#/
 
