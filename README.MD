@@ -4,7 +4,7 @@
 | 名称 | 版本 | 说明 |
 | --- | --- | --- |
 | spring-cloud-alibaba | 2.2.3.RELEASE(Hoxton.SR8) | 微服务核心框架 |
-| nacos | 1.4.1 | 注册中心 |
+| nacos | 1.4.1 | 注册中心配置中心 |
 | seata | 1.4.0 | 分布式事务 |
 | jetcahce | 2.5.14 | 分布式缓存框架 |
 | gateway | 2.2.5.RELEASE | 微服务网关 |
