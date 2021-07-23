@@ -44,7 +44,7 @@
 
 2.4.orm框架统一使用tkmybatis，不允许使用其他框架，分页插件统一使用pagehelper
 
-2.5.client工程用来提供各个服务feign的调用，打成jar包并deploy到私有仓库
+2.5.client工程用来提供各个服务feign的调用，打成jar包并deploy到私有仓库，feign之间的调用用ResultBeanUtils抽象工具类，错误的都都传交给ResultBeanUtils来处理
 
 ### 3.实体枚举模型
 3.1.DO（Data Object）：此对象与数据库表结构一一对应，通过 DAO 层向上传输数据源对象
@@ -55,8 +55,24 @@
 
 3.4.Param：数据查询对象，各层接收上层的查询请求。注意超过 2 个参数的查询封装，禁止使用 Map 类来传输
 
-3.5.Enum：枚举类型，数据库所有表示yes or no意义的字段统一用CommonEnabledEnum枚举定义
+3.5.Enum：枚举类型，数据库所有表示yes or no意义的字段统一用CommonEnabledEnum枚举定义，枚举字段用@JsonEnumConvert统一输出(注意用此枚举字段要定义成Integer，枚举对象字段限定命名为code和desc)
 
+### 4.微服务工程结构模块
+4.1.可参考bbs-demo工程，zeekrlife-common-core和zeekrlife-common-base不要放在工程服务外层的pom里，包命名规范：com.zeekrlife.micro.服务名称.模块名称
+
+4.2.Model模块:存放dto，param，result，enums，pom引用依赖zeekrlife-common-core
+
+4.3.Client模块：对其他子服务提供feign接口，pom引用依赖model模块
+
+4.4.Dao模块：存放mapper，do，mybatis.xml文件，pom引用依赖model模块，引用依赖zeekrlife-common-base
+
+4.5.Service模块：存放controller，service，config等等业务逻辑，pom引用依赖client，dao模块
+
+4.6.另外约定app端的接口不允许调用eaf服务的接口，统一由zeekrlife-eaf-provide这个服务来提供
+
+4.7.zeekrlife-micro-common所有服务通用的依赖，有好的通用设计放在此工程分享，充实沉淀我们的"武器库"，master开新分支修改测试后提交merge request合并请求
+
+4.8.为促进团队技术分享和氛围，不定期举行代码互相评审，评审记录模板《代码评审-XXX功能（评审人～被评审人）》
 
 二、编程规约
 ---
@@ -71,7 +87,7 @@
 
 1.5.所有编程相关的命名严禁使用拼音与英文混合的方式，更不允许直接使用中文的方式
 
-1.6.抽象类命名使用Abstract，异常类命名使用Exception结尾，工具累Utils结尾
+1.6.抽象类命名使用Abstract，异常类命名使用Exception结尾，工具类Utils结尾
 
 1.7.不允许任何魔法值（即未经预先定义的常量）直接出现在代码中
 
@@ -82,7 +98,7 @@
 
 2.3.所有整型包装类对象之间值的比较，全部使用equals方法比较
 
-2.4.任何货币金额，均以最小货币单位且整型类型来进行存储
+2.4.任何货币金额，均以BigDecimal
 
 2.5.定义数据对象 DO 类时，属性类型要与数据库字段类型相匹配
 
@@ -90,7 +106,7 @@
 
 2.7.灵活应用Java8 StreamUtils工具类
 
-2.8.避免用 Apache Beanutils 进行属性的 copy，使用base工具包里的Beanutils
+2.8.避免用 Apache Beanutils 进行属性的 copy，建议使用Spring核心包bean下面的BeanUtils进行替代
 
 2.9.对于精度技术不用 float 或 double，要用BigDecimal 或者 FloatDecimal
 
@@ -111,8 +127,9 @@
 
 3.2.系统里有BusinessException业务异常，抛出会发送钉钉告警，如果不想钉钉告警，请抛出DisableNoticeBusinessException
 
-3.3.所有对外提示的异常信息码统一维护到各个服务的常量池，提示信息统一写到resources/i18n，不允许直接在代码里写中文提示信息，否则报500错误信息
+3.3.系统做了国际化，提示信息码统一维护到各个服务的常量池，写到resources/i18n，不允许直接在代码里写中文提示信息，否则报500错误信息
 
+3.4.关于错误提示信息msg需要使用占位符案例可以参考bbs-demo工程里的案例
 
 三、MySQL数据库规约
 ---
@@ -123,17 +140,17 @@
 
 1.3.小数类型为 decimal，禁止使用 float 和 double
 
-1.4.表必备三字段：主键id, created_at, updated_at，主键id可用根据表实际业务用自增或者雪花算法
+1.4.表必备字段：主键id, deleted, created_at, updated_at，主键id可用根据表实际业务用自增或者雪花算法，created_by和updated_by可根据实际业务需要添加
 
 1.5.单表行数超过 500 万行或者单表容量超过 2GB，才推荐进行分库分表
 
-1.6.禁止使用小数存储货币，使用整数，小数容易导致钱对不上
+1.6.使用DECIMAL(19,4)存储货币
 
 1.7.单表索引建议控制在5个以内，建立组合索引，必须把区分度高的字段放在前面 
 
 1.8.必须使用InnoDB存储引擎，字符集统一使用utf8mb4
 
-1.9.所有字段均不允许为null，必须有默认值，必须有注释，字典字段类型均为tinyint(2)
+1.9.所有字段均不允许为null(特殊业务需要设置为null的需要说明)，必须有默认值，必须有注释，字典字段类型均为tinyint(2)
 
 1.10.所有时间类型字段均为DATETIME默认值为CURRENT_TIMESTAMP
 
@@ -158,16 +175,16 @@
 
 2.8.禁止使用OR条件，必须改为IN查询
 
-
 四、redis规约
 ---
 ### 1.缓存设置
 1.1.关于分布式缓存已集成jetcache，开发使用可参考 https://github.com/alibaba/jetcache/wiki/Home_CN 注意:如果参数是对象，那么需要保证参数对象的属性在方法在业务代里没有被修改，否则会存在缓存无法命中的问题
 
-1.2.关于分布式锁已集成redission，可用@RedissonLock注解在方法上按输入参数锁整个方法，需要锁代码块可参考@RedissonLock此注解写法
+1.2.关于分布式锁已集成redission，可用@RedissonLock注解在方法上按输入参数和实际业务判断是否跳过不处理，是否锁整个方法，码块可参考@RedissonLock此注解写法
 
-1.3.统一使用jetcache作为缓存客户端，支持本地缓存和远程缓存，支持注解缓存方式和手动api调用方式，注解方式为主，手动api调用为辅，手动缓存命名规则为"服务名称:服务模块:业务归属唯一标识ID"
+1.3.统一使用jetcache作为缓存客户端，支持本地缓存(一级缓存)和远程缓存(二级缓存)，支持方法注解@Cached缓存方式和手动api调用方式，注解方式为主，手动api调用为辅，手动缓存命名规则为"服务名称:服务模块:业务归属唯一标识ID"
 
+1.4.对于需要redis客户端命令的原生操作，jetcache支持Lettuce异步非阻塞，统一用RedisCommands
 
 五、其他
 ---
